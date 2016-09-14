@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
+using System.Data.Entity;
 
 namespace WebServicesAPI.Models
 {
@@ -24,7 +25,7 @@ namespace WebServicesAPI.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
+        public DbSet<Item> Items { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

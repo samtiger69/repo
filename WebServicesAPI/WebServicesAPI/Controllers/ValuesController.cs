@@ -4,15 +4,18 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using WebServicesAPI.Models;
 
 namespace WebServicesAPI.Controllers
 {
     public class ValuesController : ApiController
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         // GET api/values
-        public IEnumerable<string> Get()
+        public IEnumerable<Item> Get()
         {
-            return new string[] { "value1", "value2" };
+            //return new string[] { "value1", "value2" };
+            return db.Items.ToList();
         }
 
         // GET api/values/5
