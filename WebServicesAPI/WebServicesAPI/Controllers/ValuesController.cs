@@ -12,10 +12,10 @@ namespace WebServicesAPI.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET api/values
-        public IEnumerable<Item> Get()
+        public IHttpActionResult Get()
         {
             //return new string[] { "value1", "value2" };
-            return db.Items.ToList();
+            return Ok(db.Items.ToList());
         }
 
         // GET api/values/5
