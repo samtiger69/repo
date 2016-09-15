@@ -14,7 +14,6 @@ namespace WebServicesAPI.Controllers
         // GET api/values
         public IHttpActionResult Get()
         {
-            //return new string[] { "value1", "value2" };
             return Ok(db.Items.ToList());
         }
 
