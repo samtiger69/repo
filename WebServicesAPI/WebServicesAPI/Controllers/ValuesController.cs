@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -31,8 +32,10 @@ namespace WebServicesAPI.Controllers
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        public void Put([FromBody]Item value)
         {
+            db.Entry(value).State = EntityState.Modified;
+            db.SaveChanges();
         }
 
         // DELETE api/values/5
