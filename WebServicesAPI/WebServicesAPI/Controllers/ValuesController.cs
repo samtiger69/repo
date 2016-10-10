@@ -24,7 +24,7 @@ namespace WebServicesAPI.Controllers
             return "value";
         }
 
-        // POST api/values
+        // POST api/valuess
         public void Post([FromBody]Item value)
         {
             db.Items.Add(value);
