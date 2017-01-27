@@ -19,9 +19,9 @@ namespace WebServicesAPI.Controllers
         }
 
         // GET api/values/5
-        public string Get(int id)
+        public IHttpActionResult Get(int id)
         {
-            return "value";
+            return Ok(db.Items.FirstOrDefault(m => m.Id == id));
         }
 
         // POST api/valuess
