@@ -41,8 +41,19 @@ namespace WebServicesAPI.Controllers
         }
 
         // DELETE api/values/5
-        public void Delete(int id)
+        [HttpDelete]
+        public string Delete(int id)
         {
+            try
+            {
+                db.Items.Remove(db.Items.FirstOrDefault(m => m.Id == id));
+                db.SaveChanges();
+                return "Succeeded";
+            }
+            catch(Exception ex)
+            {
+                return "Failed";
+            }
         }
     }
 }
